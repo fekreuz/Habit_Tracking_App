@@ -1,0 +1,98 @@
+Habit Tracker Application
+
+Overview
+
+The Habit Tracker application is a tool designed to help users create, manage, and track their habits over time. It enables users to monitor their progress, maintain streaks, and keep a log of their completed habits. The application is built with Python and uses SQLite for data persistence. This README provides a detailed guide on the application's structure, how to set it up, and how to use it effectively.
+
+Project Structure
+
+The project is organized into the following files and directories:
+
+
+habit_tracker/
+│
+├── habit.py          # Contains the Habit class with diverse methods
+├── setup.py          # Handles the setup of predefined habits
+├── interface.py      # Contains the user interface logic
+├── main.py           # Entry point of the application
+├── habits.db         # SQLite database that stores all the habits
+└── tests/
+    ├── test_habit.py     # Contains tests for the Habit class methods
+    ├── test_analytics.py # Contains tests for analytics methods
+    
+File Descriptions
+habit.py: This file contains the Habit class, which is the core component of the application. It includes attributes and methods to manage the lifecycle of a habit, including tracking completion, calculating streaks, and handling missed periods.
+setup.py: This file is responsible for setting up predefined habits when the application is first run. It allows the user to start with a set of default habits, which can be modified or added to as needed.
+interface.py: This file contains the logic for the user interface. It manages user inputs and interactions, allowing users to add, update, and track their habits through a command-line interface.
+main.py: This is the entry point of the application. Running this file initializes the application, loads the user interface, and begins the habit tracking process.
+habits.db: This is the SQLite database file where all habit data is stored. It ensures that user data persists across sessions, allowing for continuous habit tracking.
+Installation and Setup
+
+Prerequisites
+To run the Habit Tracker application, you need to have Python 3.7 or later installed on your system. The application also relies on the SQLite database, which is included with Python by default.
+
+Installation
+Clone the repository:
+
+git clone https://github.com/fekreuz/Habit_Tracking_App
+cd habit_tracker
+Set up the database:
+The SQLite database (habits.db) is automatically created when you run the application for the first time.
+Running the Application
+To start the Habit Tracker application, run the main.py file:
+
+
+python main.py
+This will launch the command-line interface where you can begin creating and tracking your habits.
+
+Usage Guide
+
+Adding a New Habit
+Once the application is running, you can add a new habit by following the prompts. You will be asked to enter the habit's name and the tracking period (daily or weekly). The habit will then be added to your list of tracked habits.
+
+Marking a Habit as Completed
+To mark a habit as completed for the day (or week, depending on the period), follow the prompts in the interface. The application will update your habit's streak and completion history.
+
+Viewing Habit Progress
+You can view your progress on all tracked habits through the interface. The application will display the current streak, longest streak, and any missed periods for each habit.
+
+Deleting a Habit
+If you no longer want to track a habit, you can delete it through the interface. This will remove all associated data from the database.
+
+Key Features
+
+Streak Tracking: The application tracks both the current streak and the longest streak for each habit, providing users with a clear sense of progress and motivation.
+Missed Period Handling: The application logs missed periods, helping users understand their consistency and identify areas for improvement.
+Persistent Data: All habit data is stored in an SQLite database, ensuring that users can pick up where they left off, even after closing the application.
+Testing
+
+Overview
+The Habit Tracker application includes a comprehensive test suite to ensure that the core functionalities work as expected. These tests cover habit creation, data persistence, streak tracking, and database operations.
+
+Test Structure
+The tests are organized into the following files:
+
+tests/test_habit.py: Contains unit tests for the Habit class methods, including habit creation, saving to the database, and deletion.
+tests/test_analytics.py: Contains tests for analytics methods such as retrieving the longest streaks and getting all habits.
+Running the Tests
+To run the tests, follow these steps:
+
+Install pytest: If you haven't already, install pytest using pip:
+
+pip install pytest
+Run the tests: Navigate to the project directory and run the following command to execute all tests:
+
+pytest
+Check the results: pytest will run the tests and output the results, indicating which tests passed or failed.
+Example Tests
+Here are some example tests included in the test suite:
+
+test_habit_creation: Verifies that a Habit instance is created with the correct name and period.
+test_save_to_db: Ensures that a habit can be saved to the database and retrieved correctly.
+test_delete_habit: Confirms that a habit can be deleted from the database.
+These tests help maintain the integrity of the application and provide a safety net when making changes or adding new features.
+
+Conclusion
+
+The Habit Tracker application provides a simple yet powerful way to manage and track habits. With its focus on streak tracking and data persistence, it offers users a reliable tool to help build and maintain good habits. While there are areas for improvement, the current version serves as a solid foundation for future development.
+
